@@ -3,6 +3,18 @@ import React from "react";
 function HeaderTicket({ ticket }) {
   console.log(ticket);
 
+  const renderTopLabel = () => {
+    if (ticket.ticketTopLabel !== null) {
+      return (
+        <div className="topLabel">
+          <p className="topLabel__text">{ticket.ticketTopLabel}</p>
+        </div>
+      );
+    } else {
+      return <div className="topLabel topLabel--hidden"></div>;
+    }
+  };
+
   const renderPrice = () => {
     if (ticket.ticketStrikethroughPrice !== null) {
       return (
@@ -20,6 +32,7 @@ function HeaderTicket({ ticket }) {
 
   return (
     <div>
+      {renderTopLabel()}
       <h2 className="ticket__title">{ticket.ticketName}</h2>
       <p className="ticket__description">{ticket.ticketDescription}</p>
 

@@ -23,4 +23,13 @@
         url('../fonts/TrumpSoftPro-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
-  }
+ }
+
+@font-face {
+    font-family: 'Shentox';
+    src: url('../fonts/ShentoxTRIAL-Md.woff2') format('woff2'),
+        url('../fonts/ShentoxTRIAL-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
