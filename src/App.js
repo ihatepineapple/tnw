@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import TicketDesktop from "./components/ticket_desktop.js";
 
-import "./styles/styles.css";
+import "./assets/styles/fonts.css";
+import "./assets/styles/styles.css";
 
 function App() {
   const [ticketData, setTicketData] = useState();
@@ -9,14 +11,15 @@ function App() {
   useEffect(() => {
     axios
       .get(`https://next.tnw-staging.com/next-api/tickets.json`)
-      .then((tickets) => setTicketData(tickets.data.data))
+      .then((tickets) => setTicketData(tickets.data.data[1].tickets))
       .catch((error) => console.log(`${error}`));
   }, []);
 
-  console.log(ticketData);
+  // console.log(ticketData);
   return (
     <div className="App">
       <h1>tnw</h1>
+      <TicketDesktop ticketData={ticketData} />
     </div>
   );
 }
