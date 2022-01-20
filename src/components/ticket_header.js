@@ -31,7 +31,7 @@ function HeaderTicket({ ticket }) {
   };
 
   return (
-    <div>
+    <div className="ticket__header">
       {renderTopLabel()}
       <h2 className="ticket__title">{ticket.ticketName}</h2>
       <p className="ticket__description">{ticket.ticketDescription}</p>

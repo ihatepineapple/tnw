@@ -25,6 +25,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     &__text {
         font-family: 'Shentox';
@@ -38,6 +39,13 @@ body {
 
 .topLabel--hidden {
     background: transparent;
+}
+
+.ticket__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .ticket__title {
