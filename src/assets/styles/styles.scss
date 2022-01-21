@@ -19,6 +19,10 @@ body {
     font-family: 'Graphik', 'Arial', 'sans-serif';
 }
 
+.ticket {
+    border: 3px solid green;
+}
+
 .topLabel {
     height: 32px;
     background: var(--gradient);

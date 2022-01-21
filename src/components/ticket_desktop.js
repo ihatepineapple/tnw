@@ -1,22 +1,16 @@
 import React from "react";
 import HeaderTicket from "./ticket_header.js";
+import TableDesktop from "./table_desktop.js";
 
-function TicketDesktop({ ticketData }) {
-  //   console.log(ticketData);
-
-  const renderTicketHeader = () => {
-    return (
-      ticketData &&
-      ticketData.map((ticket, index) => (
-        <HeaderTicket ticket={ticket} key={index} />
-      ))
-    );
-  };
-
+function TicketDesktop({ ticket, perksList }) {
   return (
-    <div>
-      <h3>ticket desktop</h3>
-      {renderTicketHeader()}
+    <div className="ticket">
+      {ticket && (
+        <div>
+          <HeaderTicket ticket={ticket} />
+          <TableDesktop ticket={ticket} perksList={perksList} text={true} />
+        </div>
+      )}
     </div>
   );
 }

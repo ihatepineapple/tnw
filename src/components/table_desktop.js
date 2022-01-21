@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function TableDesktop({ ticketData }) {
-  const [perksList, setPerksList] = useState([]);
+function TableDesktop({ ticket, perksList, text }) {
+  console.log(text);
+  console.log(ticket);
+  console.log(perksList);
 
-  useEffect(() => {
-    setPerksList(getPerksList());
-  }, [ticketData]);
+  //   useEffect(() => {
+  //     setPerksList(getPerksList());
+  //   }, [ticket]);
 
-  const getPerksList = () => {
-    let perksArray = [];
+  //   const getPerksList = () => {
+  //     let perksArray = [];
 
-    if (ticketData) {
-      for (let i = 0; i < ticketData.length; i++) {
-        for (let j = 0; j < ticketData[i].ticketPerks.length; j++) {
-          perksArray.push(ticketData[i].ticketPerks[j]);
-        }
-      }
-      console.log(perksArray);
-    }
-    return perksArray;
-  };
+  //     if (ticket) {
+  //       for (let i = 0; i < ticket.length; i++) {
+  //         for (let j = 0; j < ticket[i].ticketPerks.length; j++) {
+  //           perksArray.push(ticket[i].ticketPerks[j].ticketPerk);
+  //         }
+  //       }
+  //       //   console.log(perksArray);
+  //     }
+  //     return [...new Set(perksArray)];
+  //   };
 
   //   console.log(perksList);
+
+  //   const renderPerksList = () => {};
 
   return <div>table</div>;
 }
