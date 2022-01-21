@@ -3,12 +3,10 @@ import React, { useState, useEffect } from "react";
 function TableDesktop({ ticket, ticketData, text }) {
   const [perksList, setPerksList] = useState([]);
 
-  //   console.log(text);
-  //   console.log(ticket);
-  console.log(ticketData);
   useEffect(() => {
     setPerksList(getPerksList());
   }, [ticketData]);
+  //   console.log(ticket);
 
   const getPerksList = () => {
     let perksArray = [];
@@ -19,16 +17,38 @@ function TableDesktop({ ticket, ticketData, text }) {
           perksArray.push(ticketData[i].ticketPerks[j].ticketPerk);
         }
       }
-      console.log(perksArray);
+      //   console.log(perksArray);
     }
     return [...new Set(perksArray)];
   };
 
-  const listItems = perksList.map((perk) => <li>{perk}</li>);
+  const listItems = perksList.map((perk, index) => <li key={index}>{perk}</li>);
+
+  const checkmarkList = () => {
+    const ticketPerks = ticket.ticketPerks;
+    // console.log(ticketPerks[0].perkDescription);
+
+    // for (let i = 0; i < ticketPerks.length; i++) {
+    //   if (perksList.includes(ticketPerks[i].ticketPerk)) {
+    //     return ticketPerks[i].ticketPerk + " X";
+    //   } else {
+    //     return;
+    //   }
+    // }
+
+    ticketPerks.forEach((ticket) => {
+      if (perksList.includes(ticket.ticketPerk)) {
+        return "X";
+      } else {
+        return " not included";
+      }
+    });
+  };
 
   return (
     <div>
-      <ul>{listItems}</ul>
+      {/* <ul>{listItems}</ul> */}
+      <ul>{checkmarkList()}</ul>
     </div>
   );
 }
