@@ -1,8 +1,6 @@
 import React from "react";
 
 function HeaderTicket({ ticket }) {
-  console.log(ticket);
-
   const renderTopLabel = () => {
     if (ticket.ticketTopLabel !== null) {
       return (

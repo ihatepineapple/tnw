@@ -7,10 +7,8 @@ function TicketDesktop({ ticketData }) {
   const renderTicketHeader = () => {
     return (
       ticketData &&
-      ticketData.map((ticket) => (
-        <div>
-          <HeaderTicket ticket={ticket} />
-        </div>
+      ticketData.map((ticket, index) => (
+        <HeaderTicket ticket={ticket} key={index} />
       ))
     );
   };
