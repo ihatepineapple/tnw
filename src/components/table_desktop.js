@@ -8,31 +8,6 @@ function TableDesktop({ ticket, ticketData, text }) {
     setPerksList(getPerksList());
   }, [ticketData]);
 
-  useEffect(() => {
-    const getResponseArray = () => {
-      const ticketPerks = ticket.ticketPerks;
-      let responseArray = [];
-
-      if (perksList.length > 0) {
-        const filteredTicketPerks = new Set(
-          ticketPerks
-            .filter(({ perkActive }) => perkActive)
-            .map(({ ticketPerk }) => ticketPerk)
-        );
-
-        perksList.map((perk) => {
-          if (filteredTicketPerks.has(perk)) {
-            responseArray.push("true");
-          } else {
-            responseArray.push("false");
-          }
-        });
-      }
-      setCheckmarkList(responseArray);
-    };
-    getResponseArray();
-  }, [ticket]);
-
   const getPerksList = () => {
     let perksArray = [];
 
@@ -48,10 +23,27 @@ function TableDesktop({ ticket, ticketData, text }) {
 
   const listItems = perksList.map((perk, index) => <li key={index}>{perk}</li>);
 
+  const getResponseArray = () => {
+    const ticketPerks = ticket.ticketPerks;
+    let responseArray = [];
+
+    const filteredTicketPerks = new Set(
+      ticketPerks
+        .filter(({ perkActive }) => perkActive)
+        .map(({ ticketPerk }) => ticketPerk)
+    );
+    responseArray = perksList.map((perk) => filteredTicketPerks.has(perk));
+    console.log(responseArray);
+
+    return responseArray;
+    // setCheckmarkList(responseArray);
+  };
+  getResponseArray();
+
   return (
     <div>
       <ul>{listItems}</ul>
-      {/* <span>{ticketData && ticket && getResponseArray()}</span> */}
+      {/* <span>{getResponseArray()}</span> */}
     </div>
   );
 }
