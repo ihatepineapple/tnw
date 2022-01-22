@@ -8,6 +8,10 @@ function TableDesktop({ ticket, ticketData, text }) {
     setPerksList(getPerksList());
   }, [ticketData]);
 
+  useEffect(() => {
+    getResponseArray();
+  }, [perksList]);
+
   const getPerksList = () => {
     let perksArray = [];
 
@@ -33,17 +37,14 @@ function TableDesktop({ ticket, ticketData, text }) {
         .map(({ ticketPerk }) => ticketPerk)
     );
     responseArray = perksList.map((perk) => filteredTicketPerks.has(perk));
-    console.log(responseArray);
 
-    return responseArray;
-    // setCheckmarkList(responseArray);
+    setCheckmarkList(responseArray);
   };
-  getResponseArray();
+  console.log(checkmarkList);
 
   return (
     <div>
       <ul>{listItems}</ul>
-      {/* <span>{getResponseArray()}</span> */}
     </div>
   );
 }
