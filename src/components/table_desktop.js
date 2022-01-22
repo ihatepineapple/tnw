@@ -27,12 +27,11 @@ function TableDesktop({ ticket, ticketData, text }) {
 
   const listItems = perksList.map((perk, index) => <li key={index}>{perk}</li>);
 
-  const ticketPerks = ticket.ticketPerks;
-
   const getResponseArray = () => {
+    const ticketPerks = ticket.ticketPerks;
     let responseArray = [];
 
-    if (ticket) {
+    if (perksList.length > 0) {
       const filteredTicketPerks = new Set(
         ticketPerks
           .filter(({ perkActive }) => perkActive)
@@ -46,13 +45,9 @@ function TableDesktop({ ticket, ticketData, text }) {
           responseArray.push("false");
         }
       });
-
-      console.log(responseArray);
-      return responseArray;
     }
+    return responseArray;
   };
-  //   console.log(checkmarkList);
-  //   console.log(perksList);
 
   return (
     <div>
