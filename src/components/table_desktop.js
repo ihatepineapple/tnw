@@ -8,6 +8,10 @@ function TableDesktop({ ticket, ticketData, text }) {
     setPerksList(getPerksList());
   }, [ticketData]);
 
+  useEffect(() => {
+    setCheckmarkList(getResponseArray());
+  }, [ticket]);
+
   const getPerksList = () => {
     let perksArray = [];
 
@@ -26,40 +30,36 @@ function TableDesktop({ ticket, ticketData, text }) {
   const ticketPerks = ticket.ticketPerks;
 
   const getResponseArray = () => {
-    const filteredTicketPerks = new Set(
-      ticketPerks
-        .filter(({ perkActive }) => perkActive)
-        .map(({ ticketPerk }) => ticketPerk)
-    );
-    const responseArray = perksList.map((perk) =>
-      filteredTicketPerks.has(perk)
-    );
-    console.log(responseArray);
-    // setCheckmarkList(responseArray);
-    // console.log(checkmarkList);
+    let responseArray = [];
+
+    if (ticket) {
+      const filteredTicketPerks = new Set(
+        ticketPerks
+          .filter(({ perkActive }) => perkActive)
+          .map(({ ticketPerk }) => ticketPerk)
+      );
+
+      perksList.map((perk) => {
+        if (filteredTicketPerks.has(perk)) {
+          responseArray.push("true");
+        } else {
+          responseArray.push("false");
+        }
+      });
+
+      console.log(responseArray);
+      return responseArray;
+    }
   };
+  //   console.log(checkmarkList);
+  //   console.log(perksList);
 
   return (
     <div>
       <ul>{listItems}</ul>
-      <span>{getResponseArray()}</span>
+      {/* <span>{ticketData && ticket && getResponseArray()}</span> */}
     </div>
   );
 }
 
 export default TableDesktop;
-
-// const perksArray = ["blue", "pink", "red", "green", "yellow", "orange", "white"]
-
-// const ticketPerks = [{name:"pink", value: "1"}, {name:"green", value: null}, {name: "white", value: "1"}]
-
-// const checkedPerks = new Set(
-//   ticketPerks
-//     .filter(({value}) => value)
-//     .map(({name}) =>name)
-// )
-
-// console.log(checkedPerks)
-
-// const response = perksArray.map(perk => checkedPerks.has(perk))
-// console.log(response)
