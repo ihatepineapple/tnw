@@ -38,7 +38,7 @@ function App(props) {
           {breakpoints[currentBreakpoint] < breakpoints.tabletLandscape
             ? ticketData &&
               ticketData.map((ticket, index) => (
-                <div className="ticket" key={index}>
+                <div className={getTicketClasses(ticket)} key={index}>
                   <HeaderTicketMobile ticket={ticket} />
                   <TableMobile ticket={ticket} />
                   <FooterTicket ticket={ticket} />
@@ -46,7 +46,7 @@ function App(props) {
               ))
             : ticketData &&
               ticketData.map((ticket, index) => (
-                <div className="ticket" key={index}>
+                <div className={getTicketClasses(ticket)} key={index}>
                   <HeaderTicket ticket={ticket} />
                   <TableDesktop ticket={ticket} ticketData={ticketData} />
                   <FooterTicket ticket={ticket} />
@@ -55,6 +55,14 @@ function App(props) {
         </div>
       </div>
     );
+  };
+
+  const getTicketClasses = (ticket) => {
+    if (ticket.ticketHighlighted) {
+      return "ticket highlighted";
+    } else {
+      return "ticket";
+    }
   };
 
   return <div className="App">{renderTickets()}</div>;

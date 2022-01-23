@@ -20,8 +20,6 @@ function TableMobile({ ticket }) {
     return [...new Set(filteredTicketPerks)];
   };
 
-  console.log(perksListMobile);
-
   const listItemsMobile =
     perksListMobile &&
     perksListMobile.map((perk, index) => (
