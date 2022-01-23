@@ -114,3 +114,11 @@ body {
     border-radius: 24px;
     background-color: var(--btn-bg);
 }
+
+.list_perks {
+    line-height: 52px;
+}
+
+.list_perks > li:nth-child(even) {
+    background-color: var(--cell-bg);
+}

@@ -20,13 +20,19 @@ function App() {
 
   const renderTickets = (props) => {
     return (
-      ticketData &&
-      ticketData.map((ticket, index) => (
-        <div className="ticket" key={index}>
-          <HeaderTicket ticket={ticket} />
-          <TableDesktop ticket={ticket} ticketData={ticketData} text={true} />
-        </div>
-      ))
+      <div>
+        {ticketData &&
+          ticketData.map((ticket, index) => (
+            <div className="ticket" key={index}>
+              <HeaderTicket ticket={ticket} />
+              <TableDesktop
+                ticket={ticket}
+                ticketData={ticketData}
+                text={true}
+              />
+            </div>
+          ))}
+      </div>
     );
   };
 

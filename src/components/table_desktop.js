@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Icon from "@mdi/react";
+import { mdiCheck } from "@mdi/js";
 
 function TableDesktop({ ticket, ticketData, text }) {
   const [perksList, setPerksList] = useState([]);
@@ -37,14 +39,30 @@ function TableDesktop({ ticket, ticketData, text }) {
         .map(({ ticketPerk }) => ticketPerk)
     );
     responseArray = perksList.map((perk) => filteredTicketPerks.has(perk));
-
     setCheckmarkList(responseArray);
   };
-  console.log(checkmarkList);
+
+  const checkmarkItems = checkmarkList.map((item, index) => {
+    if (item === true) {
+      return (
+        <li key={index}>
+          <Icon
+            path={mdiCheck}
+            title="Checkmark"
+            size={0.8}
+            color="var(--info-text)"
+          />
+        </li>
+      );
+    } else {
+      return <li key={index}> </li>;
+    }
+  });
 
   return (
     <div>
-      <ul>{listItems}</ul>
+      <ul className="list_perks">{listItems}</ul>
+      <ul className="list_perks">{checkmarkItems}</ul>
     </div>
   );
 }
