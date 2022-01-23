@@ -16,11 +16,9 @@ function App() {
       .catch((error) => console.log(`${error}`));
   }, []);
 
-  // console.log(perksList);
-
   const renderTickets = (props) => {
     return (
-      <div>
+      <div className="wrapper">
         {ticketData &&
           ticketData.map((ticket, index) => (
             <div className="ticket" key={index}>
@@ -36,13 +34,7 @@ function App() {
     );
   };
 
-  return (
-    <div className="App">
-      <h1>tnw</h1>
-
-      {renderTickets()}
-    </div>
-  );
+  return <div className="App">{renderTickets()}</div>;
 }
 
 export default App;

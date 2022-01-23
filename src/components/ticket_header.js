@@ -31,13 +31,16 @@ function HeaderTicket({ ticket }) {
   return (
     <div className="ticket__header">
       {renderTopLabel()}
-      <h2 className="ticket__title">{ticket.ticketName}</h2>
-      <p className="ticket__description">{ticket.ticketDescription}</p>
+      <div className="ticket__info">
+        <h2 className="ticket__title">{ticket.ticketName}</h2>
+        <p className="ticket__description">{ticket.ticketDescription}</p>
+      </div>
 
-      {renderPrice()}
-      <p className="price__footnote">ex 21% VAT</p>
-
-      <button className="btn">Register now</button>
+      <div className="price__wrapper">
+        {renderPrice()}
+        <p className="price__footnote">ex 21% VAT</p>
+        <button className="btn">Register now</button>
+      </div>
     </div>
   );
 }

@@ -21,6 +21,39 @@ body {
 
 .ticket {
     border: 3px solid green;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 52px;
+    }
+    
+    &__title {
+        font-family: 'Trump Soft Pro';
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.96px;
+        color: var(--primary-text);
+        line-height: 52px;
+        text-align: center;
+    
+    }
+    
+    &__description {
+        color: var(--info-text);
+        letter-spacing: -0.14px;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    &__info {
+        padding: 30px;
+        height: 200px;
+    }
+
 }
 
 .topLabel {
@@ -45,33 +78,6 @@ body {
     background: transparent;
 }
 
-.ticket__header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.ticket__title {
-    font-family: 'Trump Soft Pro';
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.96px;
-    color: var(--primary-text);
-    line-height: 52px;
-    text-align: center;
-
-}
-
-.ticket__description {
-    color: var(--info-text);
-    letter-spacing: -0.14px;
-    font-size: 14px;
-    line-height: 22px;
-    text-align: center;
-
-}
-
 .price {
     font-size: 20px;
     color: var(--primary-text);
@@ -85,7 +91,6 @@ body {
         letter-spacing: -0.12px;
         line-height: 20px;
         text-align: center;
-
     }
 
     &__strikethrough {
@@ -97,6 +102,11 @@ body {
         color: var(--alert-text);
         padding-left: 10px;
     }
+
+    // &__wrapper {
+    //     position: absolute;
+    //     top: 35%;
+    // }
 
 }
 
@@ -116,9 +126,43 @@ body {
 }
 
 .list_perks {
+    list-style-type: none;
     line-height: 52px;
+
+    &__item--hidden {
+        color:transparent;
+    }
 }
 
-.list_perks > li:nth-child(even) {
+.list_perks > li:nth-child(odd) {
     background-color: var(--cell-bg);
+}
+
+@media screen and (min-width: 480px) {
+    body {
+        background-color: aquamarine;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .ticket {
+        width: 20%;
+    }
+
+
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+        background-color: lavender;
+    }
+
+    .ticket {
+        width: 20%;
+    }
+
+
 }

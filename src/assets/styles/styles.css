@@ -22,6 +22,46 @@ body {
   border: 3px solid green;
 }
 
+.ticket__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 52px;
+}
+
+.ticket__title {
+  font-family: 'Trump Soft Pro';
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.96px;
+  color: var(--primary-text);
+  line-height: 52px;
+  text-align: center;
+}
+
+.ticket__description {
+  color: var(--info-text);
+  letter-spacing: -0.14px;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.ticket__info {
+  padding: 30px;
+  height: 200px;
+}
+
 .topLabel {
   height: 32px;
   background: var(--gradient);
@@ -48,40 +88,6 @@ body {
 
 .topLabel--hidden {
   background: transparent;
-}
-
-.ticket__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.ticket__title {
-  font-family: 'Trump Soft Pro';
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.96px;
-  color: var(--primary-text);
-  line-height: 52px;
-  text-align: center;
-}
-
-.ticket__description {
-  color: var(--info-text);
-  letter-spacing: -0.14px;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: center;
 }
 
 .price {
@@ -126,10 +132,42 @@ body {
 }
 
 .list_perks {
+  list-style-type: none;
   line-height: 52px;
 }
 
-.list_perks > li:nth-child(even) {
+.list_perks__item--hidden {
+  color: transparent;
+}
+
+.list_perks > li:nth-child(odd) {
   background-color: var(--cell-bg);
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    background-color: aquamarine;
+  }
+  .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+  .ticket {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body {
+    background-color: lavender;
+  }
+  .ticket {
+    width: 20%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
