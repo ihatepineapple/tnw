@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiCheck } from "@mdi/js";
 
-function TableDesktop({ ticket, ticketData, text }) {
+function TableDesktop({ ticket, ticketData }) {
   const [perksList, setPerksList] = useState([]);
   const [checkmarkList, setCheckmarkList] = useState([]);
 
@@ -26,8 +26,6 @@ function TableDesktop({ ticket, ticketData, text }) {
     }
     return [...new Set(perksArray)];
   };
-
-  const listItems = perksList.map((perk, index) => <li key={index}>{perk}</li>);
 
   const getResponseArray = () => {
     const ticketPerks = ticket.ticketPerks;
@@ -56,7 +54,10 @@ function TableDesktop({ ticket, ticketData, text }) {
       );
     } else {
       return (
-        <li key={index} className="list_perks__item--hidden">
+        <li
+          key={index}
+          className="list_perks__item--hidden list_perks--centered"
+        >
           {". "}
         </li>
       );
@@ -65,8 +66,7 @@ function TableDesktop({ ticket, ticketData, text }) {
 
   return (
     <div>
-      <ul className="list_perks">{listItems}</ul>
-      <ul className="list_perks">{checkmarkItems}</ul>
+      <ul className="list_perks list_perks--centered">{checkmarkItems}</ul>
     </div>
   );
 }

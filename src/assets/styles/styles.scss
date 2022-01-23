@@ -15,23 +15,22 @@
 }
 
 body {
-    // background: var(--gradient);
     font-family: 'Graphik', 'Arial', 'sans-serif';
 }
 
 .ticket {
-    border: 3px solid green;
 
     &__header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin-bottom: 52px;
+        margin-bottom: 26px;
+        height: 320px;
+    }
+
+    &__footer {
+        margin-top: 26px;
     }
     
     &__title {
-        font-family: 'Trump Soft Pro';
+        font-family: 'Trump Soft Pro', 'Arial', 'sans-serif';
         font-size: 24px;
         text-transform: uppercase;
         letter-spacing: 0.96px;
@@ -50,8 +49,8 @@ body {
     }
 
     &__info {
-        padding: 30px;
-        height: 200px;
+        padding: 0 30px;
+        height: 150px;
     }
 
 }
@@ -65,7 +64,7 @@ body {
     width: 100%;
 
     &__text {
-        font-family: 'Shentox';
+        font-family: 'Shentox', 'Arial', 'sans-serif';
         color:#FFFFFF;
         text-transform: uppercase;
         font-size: 14px;
@@ -103,11 +102,6 @@ body {
         padding-left: 10px;
     }
 
-    // &__wrapper {
-    //     position: absolute;
-    //     top: 35%;
-    // }
-
 }
 
 .btn {
@@ -122,15 +116,33 @@ body {
     height: 48px;
     width: 144px;
     border-radius: 24px;
+    margin-top: 13px;
     background-color: var(--btn-bg);
+
+    &__wrapper {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
 }
 
 .list_perks {
     list-style-type: none;
     line-height: 52px;
+    font-size: 14px;
+    color: var(--primary-text);
+    border-bottom: 1px solid var(--border-edge);
+    
+    &--centered {  
+        text-align: center;
+    }
+
+    &__item {
+        text-align: right;
+    }
 
     &__item--hidden {
-        color:transparent;
+        color: transparent;
     }
 }
 
@@ -139,17 +151,34 @@ body {
 }
 
 @media screen and (min-width: 480px) {
-    body {
-        background-color: aquamarine;
-    }
-
     .wrapper {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
     }
 
     .ticket {
-        width: 20%;
+        border-right: 1px solid var(--border-edge);
+        width: calc(20% - 1px);
+
+        &__wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            width: 80%;
+        }
+    }
+
+    .ticket:last-child {
+        border-right: none;
+    }
+
+    .table__wrapper {
+        max-width: 320px;
+    }
+
+    .list-perks__text_only {
+        padding-top: 346px;
     }
 
 
@@ -157,12 +186,18 @@ body {
 
 @media screen and (min-width: 1500px) {
     body {
-        background-color: lavender;
+        padding: 5%;
     }
 
     .ticket {
-        width: 20%;
+        width: calc(25% - 1px);
     }
 
 
+}
+
+@media screen and (min-width: 1500px) {
+    body {
+        padding: 8%;
+    }
 }

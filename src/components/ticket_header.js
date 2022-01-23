@@ -1,4 +1,5 @@
 import React from "react";
+import LinesEllipsis from "react-lines-ellipsis";
 
 function HeaderTicket({ ticket }) {
   const renderTopLabel = () => {
@@ -33,13 +34,22 @@ function HeaderTicket({ ticket }) {
       {renderTopLabel()}
       <div className="ticket__info">
         <h2 className="ticket__title">{ticket.ticketName}</h2>
-        <p className="ticket__description">{ticket.ticketDescription}</p>
+        <LinesEllipsis
+          text={ticket.ticketDescription}
+          maxLine="4"
+          ellipsis="..."
+          trimRight
+          basedOn="letters"
+          className="ticket__description"
+        />
       </div>
 
       <div className="price__wrapper">
         {renderPrice()}
         <p className="price__footnote">ex 21% VAT</p>
-        <button className="btn">Register now</button>
+        <div className="btn__wrapper">
+          <button className="btn">Register now</button>
+        </div>
       </div>
     </div>
   );
