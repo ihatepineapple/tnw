@@ -16,7 +16,7 @@ function TableMobile({ ticket }) {
         .filter(({ perkActive }) => perkActive)
         .map(({ ticketPerk }) => ticketPerk)
     );
-    // setPerksListMobile(filteredTicketPerks);
+
     return [...new Set(filteredTicketPerks)];
   };
 
@@ -31,7 +31,7 @@ function TableMobile({ ticket }) {
           maxLine="1"
           ellipsis="..."
           trimRight
-          basedOn="letters"
+          basedOn="words"
         />
       </li>
     ));

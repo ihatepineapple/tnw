@@ -16,6 +16,13 @@
 
 body {
   font-family: 'Graphik', 'Arial', 'sans-serif';
+  background-color: var(--cell-bg);
+}
+
+.ticket {
+  border: 1px solid var(--border-edge);
+  margin: 20px;
+  background-color: white;
 }
 
 .ticket__header {
@@ -23,8 +30,12 @@ body {
   height: 320px;
 }
 
+.ticket__header--mobile {
+  height: auto;
+}
+
 .ticket__footer {
-  margin-top: 26px;
+  margin: 26px 0;
 }
 
 .ticket__title {
@@ -35,6 +46,9 @@ body {
   color: var(--primary-text);
   line-height: 52px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ticket__description {
@@ -169,8 +183,7 @@ body {
             justify-content: center;
   }
   .ticket {
-    border-right: 1px solid var(--border-edge);
-    width: calc(20% - 1px);
+    width: calc(80% - 1px);
   }
   .ticket__wrapper {
     display: -webkit-box;
@@ -183,6 +196,9 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 80%;
   }
   .ticket:last-child {
@@ -196,12 +212,27 @@ body {
   }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 768px) {
+  .ticket {
+    width: calc(80% - 42px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
   body {
-    padding: 5%;
+    background-color: white;
   }
   .ticket {
     width: calc(25% - 1px);
+    margin: 0;
+    border: none;
+    border-right: 1px solid var(--border-edge);
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  body {
+    padding: 5%;
   }
 }
 

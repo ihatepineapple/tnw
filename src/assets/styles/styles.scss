@@ -16,17 +16,25 @@
 
 body {
     font-family: 'Graphik', 'Arial', 'sans-serif';
+    background-color: var(--cell-bg);
 }
 
 .ticket {
+    border: 1px solid var(--border-edge);
+    margin: 20px;
+    background-color: white;
 
     &__header {
         margin-bottom: 26px;
         height: 320px;
     }
 
+    &__header--mobile {
+        height: auto;
+    }
+
     &__footer {
-        margin-top: 26px;
+        margin: 26px 0;
     }
     
     &__title {
@@ -37,6 +45,9 @@ body {
         color: var(--primary-text);
         line-height: 52px;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     
     }
     
@@ -158,13 +169,13 @@ body {
     }
 
     .ticket {
-        border-right: 1px solid var(--border-edge);
-        width: calc(20% - 1px);
+        width: calc(80% - 1px);
 
         &__wrapper {
             display: flex;
             flex-flow: row wrap;
             align-items: center;
+            justify-content: center;
             width: 80%;
         }
     }
@@ -181,7 +192,27 @@ body {
         padding-top: 346px;
     }
 
+}
 
+@media screen and (min-width: 768px) {
+    .ticket {
+        width: calc(80% - 42px);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        background-color: white;
+    }
+
+    .ticket {
+        width: calc(25% - 1px);
+        margin: 0;
+        border: none;
+        border-right: 1px solid var(--border-edge);
+
+
+    }
 }
 
 @media screen and (min-width: 1500px) {
@@ -189,9 +220,9 @@ body {
         padding: 5%;
     }
 
-    .ticket {
-        width: calc(25% - 1px);
-    }
+    // .ticket {
+    //     width: calc(25% - 1px);
+    // }
 
 
 }
